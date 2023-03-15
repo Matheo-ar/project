@@ -1,0 +1,92 @@
+{% extends "base_template_user.html" %}
+
+{% block title %}Categorías{% endblock %}
+  
+{% block content %}
+<main>
+  <form action="/categorias" class="formCategories" method="post">
+    {% with messages=get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages%}
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{message}}
+          </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      {{ form.hidden_tag() }}
+      <div class="contentFormCategories">
+        <div class="contentTitleformCategories">
+          <h1 class="titleformCategories">Categorias</h1>
+        </div>
+        <div class="formGroupCategories">
+          {{ form.IdCategoria.label }}
+          <input type="text" id="IdCategoria" name="IdCategoria" class="formInputCategories">
+        </div>
+        <div class="formGroupCategories">
+          <button class="buttonSearchCategories" type="submit">Buscar categoria</button>
+        </div>
+        <div class="contentTableCategories">
+          <table class="tableCategories">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Nombre categoria</th>
+                <th>Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="infoCategories" id="idCategorie" name="idCategorie"></td>
+                <td class="infoCategories" id="nameCategories" name="nameCategories"></td>
+                <td class="optionsCategories" id="optionsCategories" name="optionsCategories">
+                  <div class="contentOptionsCategories">
+                    <img src="../static/img/editar.png" alt="Editar Categorias" class="categoriesEdit" id="categoriesEdit" name="categoriesEdit">
+                    <img src="../static/img/eliminar.png" alt="Eliminar Categories" class="categoriesDelete" id="categoriesDelete" name="categoriesDelete">
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <a href="/crearCategoria" class="buttonCreateCategories">Crear categoria</a>
+        </div>
+        
+      </div>
+  </form>
+  <div class="overLayCategories" id="overLayCategories">
+    <div class="popupCategories" id="popupCategories">
+      <a href="#" id="btn-close-popup-categories" class="btn-close-popup-categories"><img src="../static/img/cerrar.png" alt="cerrar ventana" class="iconCloseCategories" id="iconCloseCategories"></a>
+      <form action="/categorias" class="formUpdateCategories" method="post">
+        {% with messages=get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages%}
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{message}}
+          </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+        {{ form.hidden_tag() }}
+        <div>
+          <div class="contentTitleUpdateCategories">
+            <h1 class="titleUpdateCategories">Datos categoria</h1>
+          </div>
+          <div class="formGroupUpdateCategories">
+            {{ form.IdCategoria.label }}
+            <input type="text" id="IdCategoria" name="IdCategoria" class="formInputUpdateCategories">
+          </div>
+          <div class="formGroupUpdateCategories">
+            {{ form.NombreCategoria.label }}
+            <input type="text" id="NombreCategoria" name="NombreCategoria" class="formInputUpdateCategories" >
+          </div>
+          <div class="formGroupUpdateCategories">
+            <button class="buttonUpdateCategories" type="submit">Actualizar categoria</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

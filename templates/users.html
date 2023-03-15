@@ -1,0 +1,160 @@
+{% extends "base_template_user.html" %}
+
+{% block title %}Usuarios{% endblock %}
+  
+{% block content %}
+<main>
+  <form action="/usuarios" class="formUsers" method="post">
+    {% with messages=get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages%}
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{message}}
+          </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      {{ form.hidden_tag() }}
+      <div class="contentFormUsers">
+        <div class="contentTitleformUsers">
+          <h1 class="titleformUsers">Usuarios</h1>
+        </div>
+        <div class="formGroupUsers">
+          {{ form.Tipodoc.label }}
+          <select  id="Tipodoc" name="Tipodoc" class="formSelectUsers" >
+            <option value="RC">Registro civil</option>
+            <option value="TI">Tarjeta de identidad</option>
+            <option value="CC">Cédula de ciudadanía</option>
+            <option value="CE">Cédula de extrajería</option>
+          </select>
+          {% for error in form.Tipodoc.errors %}
+              <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="formGroupUsers">
+          {{ form.Documento.label }}
+          <input type="text" id="Documento" name="Documento" class="formInputUsers" >
+          {% for error in form.Documento.errors %}
+              <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="formGroupUsers">
+          <button class="buttonSearchUsers" type="submit">Buscar</button>
+        </div>
+        <div class="contentTableUsers">
+          <table class="tableUsers">
+            <thead>
+              <tr>
+                <th>Usuario</th>
+                <th>Nombres y Apellidos</th>
+                <th>Correo</th>
+                <th>Telefono</th>
+                <th>Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="infoUser" id="username" name="username"></td>
+                <td class="infoUser" id="name" name="name"></td>
+                <td class="infoUser" id="email" name="email"></td>
+                <td class="infoUser" id="phone" name="phone"></td>
+                <td class="options" id="options" name="options">
+                  <div class="contentOpciones">
+                    <img src="../static/img/editar.png" alt="Editar Usuarios" class="userEdit" id="userEdit" name="userEdit">
+                    <img src="../static/img/eliminar.png" alt="Eliminar Usuarios" class="userDelete" id="userDelete" name="userDelete">
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <a href="/registro" class="buttonCreateUsers">Crear Usuario</a>
+        </div>
+        
+      </div>
+  </form>
+  <div class="overLay" id="overLay">
+    <div class="popup" id="popup">
+      <a href="#" id="btn-close-popup" class="btn-close-popup"><img src="../static/img/cerrar.png" alt="cerrar ventana" class="iconClose" id="iconClose"></a>
+      <form action="" class="formUpdate" method="post">
+        {% with messages=get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages%}
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{message}}
+          </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+        {{ form.hidden_tag() }}
+        <div>
+          <div class="contentTitleUpdate">
+            <h1 class="titleUpdate">Datos usuario</h1>
+          </div>
+          <div class="formGroupUpdate">
+            {{ form.Tipodoc.label }}
+            <select  id="Tipodoc" name="Tipodoc" class="formSelectUpdate" >
+              <option value="RC">Registro civil</option>
+              <option value="TI">Tarjeta de identidad</option>
+              <option value="CC">Cédula de ciudadanía</option>
+              <option value="CE">Cédula de extrajería</option>
+            </select>
+          </div>
+          <div class="formGroupUpdate">
+            {{ form.Documento.label }}
+            <input type="text" id="Documento" name="Documento" class="formInputUpdate" >
+          </div>
+          <div class="formGroupUpdate">
+            {{ form.Nombres.label }}
+            <input type="text" id="Nombres" name="Nombres" class="formInputUpdate" >
+          </div>
+          <div class="formGroupUpdate">
+            {{ form.Apellidos.label }}
+            <input type="text" id="Apellidos" name="Apellidos"class="formInputUpdate" >
+          </div>
+          <div class="formGroupUpdate">
+            {{ form.Nacimiento.label }}
+            <input type="date" id="Nacimiento" name="Nacimiento" class="formInputUpdate">
+          </div>
+          <div class="formGroupUpdate">
+            {{ form.Genero.label }}
+            <div class="radioSignUp">
+              <input type="radio" name="Genero" id="option1" value="M"> Masculino </input><br>
+              <input type="radio" name="Genero" id="option2" value="F"> Femenino </input><br>
+            </div>
+          </div>
+          <div class="formGroupUpdate">
+            {{ form.Email.label }}
+            <input type="email" id="Email" name="Email" class="formInputUpdate" >
+          </div>
+          <div class="formGroupUpdate">
+            {{ form.Telefono.label }}
+            <input type="text" id="Telefono" name="Telefono" class="formInputUpdate" >
+          </div>
+          <div class="formGroupUpdate">
+            {{ form.Direccion.label }}
+            <input type="text" id="Direccion" name="Direccion" class="formInputUpdate" >
+          </div>
+          <div class="formGroupUpdate">
+            {{ form.Rol.label }}
+            <div class="radioSignUp">
+              <input type="radio" name="Rol" id="option1" value="estudiante"> Estudiante </input><br>
+              <input type="radio" name="Rol" id="option2" value="entrenador"> Entrenador </input><br>
+              <input type="radio" name="Rol" id="option2" value="acudiente"> Acudiente </input><br>
+            </div>
+          </div>
+          <div class="formGroupUpdate">
+            {{ form.Contraseña.label }}
+            <input type="password" id="Contraseña" name="Contraseña" class="formInputUpdate" >
+          </div>
+          <div class="formGroupUpdate">
+            <button class="buttonUpdate" type="submit">Actualizar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

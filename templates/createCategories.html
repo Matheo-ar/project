@@ -1,0 +1,42 @@
+{% extends "base_template_user.html" %}
+
+{% block title %}Crear categoria{% endblock %}
+  
+{% block content %}
+  <main>
+      <form action="/crearCategoria" class="formCreateCategorie" method="post">
+        {% with messages=get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages%}
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{message}}
+          </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+        {{ form.hidden_tag() }}
+        <div class="contentFormCreateCategorie">
+          <div class="contentTitleCreateCategorie">
+            <h1 class="titleCreateCategorie">Crear categoría</h1>
+          </div>
+          <div class="formGroupCreateCategorie">
+            {{ form.IdCategoria.label }}
+            <input type="text" id="IdCategoria" name="IdCategoria" class="formInputCreateCategorie">
+            {% for error in form.IdCategoria.errors %}
+                <span style="color: red;">{{ error }}</span>
+              {% endfor %}
+          </div>
+          <div class="formGroupCreateCategorie">
+            {{ form.NombreCategoria.label }}
+            <input type="text" id="NombreCategoria" name="NombreCategoria" class="formInputCreateCategorie">
+            {% for error in form.NombreCategoria.errors %}
+                <span style="color: red;">{{ error }}</span>
+              {% endfor %}
+          </div>
+          <div class="formGroupCreateCategorie">
+            <button class="buttonCreateCategorie" type="submit">Crear categoría</button>
+          </div>
+        </div>
+      </form>
+  </main>
+{% endblock %}

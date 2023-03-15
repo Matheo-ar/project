@@ -1,0 +1,53 @@
+
+<!--
+
+=========================================================
+* Pixel Free Bootstrap 5 UI Kit
+=========================================================
+
+* Product Page: https://themesberg.com/product/ui-kit/pixel-free-bootstrap-5-ui-kit
+* Copyright 2021 Themesberg (https://www.themesberg.com)
+
+* Coded by https://themesberg.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Contact us if you want to remove it.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!-- Primary Meta Tags -->
+<title>
+    {% block title %}{% endblock %}
+</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base_template_user.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/users.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/signUp.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/categories.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/createCategories.css') }}">
+</head>
+<body>
+  <div id="sidebar">
+    <div class="conteneLogo">
+      <img src="../static/img/escudo.jpg" alt="Escudo Sociedad FC" class="logo">
+    </div>
+    <ul>
+      <li><a href="/home">Principal</a></li>
+      <li><a href="/usuarios">Usuarios</a></li>
+      <li><a href="/categorias">Categorías</a></li>
+      <li><a href="">Eventos</a></li>
+      <li><a href="">Salir</a></li>
+    </ul>
+  </div>
+    {% block content %}{% endblock %}
+    <script src="{{ url_for('static', filename='js/popup.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popupCategories.js') }}"></script>
+</body>
+</html>
