@@ -149,12 +149,12 @@ def protected():
         return redirect('/login')
 
 
-@app.route('/logout')
+@app.route('/cerrarsesion')
 def logout():
     logout_user()
     # Limpiamos la sesión
     session.clear()
-    return redirect('/')
+    return render_template('logout.html')
 
 
 @login_manager.user_loader

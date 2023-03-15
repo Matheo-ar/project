@@ -32,6 +32,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/signUp.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/categories.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/createCategories.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/logout.css') }}">
 </head>
 <body>
   <div id="sidebar">
@@ -42,8 +43,7 @@
       <li><a href="/home">Principal</a></li>
       <li><a href="/usuarios">Usuarios</a></li>
       <li><a href="/categorias">Categorías</a></li>
-      <li><a href="">Eventos</a></li>
-      <li><a href="">Salir</a></li>
+      <li><a href="/cerrarsesion">Salir</a></li>
     </ul>
   </div>
     {% block content %}{% endblock %}
