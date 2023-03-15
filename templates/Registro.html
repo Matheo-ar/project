@@ -33,21 +33,21 @@
           </div>
           <div class="formGroupSignUp">
             {{ form.Documento.label }}
-            <input type="text" id="Documento" name="Documento" class="formInputSignUp" placeholder="Numero documento">
+            <input type="text" id="Documento" name="Documento" class="formInputSignUp" >
             {% for error in form.Documento.errors %}
                 <span style="color: red;">{{ error }}</span>
               {% endfor %}
           </div>
           <div class="formGroupSignUp">
             {{ form.Nombres.label }}
-            <input type="text" id="Nombres" name="Nombres" class="formInputSignUp" placeholder="Nombres">
+            <input type="text" id="Nombres" name="Nombres" class="formInputSignUp" >
             {% for error in form.Nombres.errors %}
                 <span style="color: red;">{{ error }}</span>
               {% endfor %}
           </div>
           <div class="formGroupSignUp">
             {{ form.Apellidos.label }}
-            <input type="text" id="Apellidos" name="Apellidos"class="formInputSignUp" placeholder="Apellidos">
+            <input type="text" id="Apellidos" name="Apellidos"class="formInputSignUp" >
             {% for error in form.Apellidos.errors %}
                 <span style="color: red;">{{ error }}</span>
               {% endfor %}
@@ -71,21 +71,21 @@
           </div>
           <div class="formGroupSignUp">
             {{ form.Email.label }}
-            <input type="email" id="Email" name="Email" class="formInputSignUp" placeholder="Email">
+            <input type="email" id="Email" name="Email" class="formInputSignUp" >
             {% for error in form.Email.errors %}
                 <span style="color: red;">{{ error }}</span>
               {% endfor %}
           </div>
           <div class="formGroupSignUp">
             {{ form.Telefono.label }}
-            <input type="text" id="Telefono" name="Telefono" class="formInputSignUp" placeholder="Numero celular">
+            <input type="text" id="Telefono" name="Telefono" class="formInputSignUp" >
             {% for error in form.Telefono.errors %}
                 <span style="color: red;">{{ error }}</span>
               {% endfor %}
           </div>
           <div class="formGroupSignUp">
             {{ form.Direccion.label }}
-            <input type="text" id="Direccion" name="Direccion" class="formInputSignUp" placeholder="Dirección">
+            <input type="text" id="Direccion" name="Direccion" class="formInputSignUp" >
             {% for error in form.Direccion.errors %}
                 <span style="color: red;">{{ error }}</span>
               {% endfor %}
@@ -103,7 +103,7 @@
           </div>
           <div class="formGroupSignUp">
             {{ form.Contraseña.label }}
-            <input type="password" id="Contraseña" name="Contraseña" class="formInputSignUp" placeholder="Contraseña">
+            <input type="password" id="Contraseña" name="Contraseña" class="formInputSignUp" >
             {% for error in form.Contraseña.errors %}
                 <span style="color: red;">{{ error }}</span>
               {% endfor %}
